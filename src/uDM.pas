@@ -143,12 +143,12 @@ begin
     Consulta.Connection := PAR_Conexao;// DM.Conexao;
     Close;
     SQL.Clear;
-    SQL.Add('select max('+PAR_Campo+') Maximo from '+PAR_Tabela);
+    SQL.Add('select coalesce(max('+PAR_Campo+'),0) Maximo from '+PAR_Tabela);
     ExecSQL;
     Open;
   end;
 
-  if Consulta.Eof then
+  if Consulta.RecordCount = 0 then
   begin
     Result := 1;
   end else begin

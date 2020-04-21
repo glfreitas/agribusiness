@@ -39,6 +39,8 @@ type
     ACT_Fechar: TAction;
     ACT_Login: TAction;
     RibbonGroup2: TRibbonGroup;
+    ACT_Produtos: TAction;
+    ACT_Distribuidores: TAction;
     procedure ACT_UsuariosExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ACT_Fechar1Execute(Sender: TObject);
@@ -53,6 +55,8 @@ type
     procedure ACT_PerfisExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ACT_ProdutosExecute(Sender: TObject);
+    procedure ACT_DistribuidoresExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -70,7 +74,7 @@ implementation
 {$R *.dfm}
 
 uses uDM, UnitLogin, uCampos, uCamposLoockUps, uCamposMascaras, uTabelas, uUsuarios,
-  uAcessos, uSobre, uPerfis;
+  uAcessos, uSobre, uPerfis, uProdutos, uDistribuidores;
 
 procedure TFormPrincipal.ACT_CamposExecute(Sender: TObject);
 begin
@@ -88,6 +92,12 @@ procedure TFormPrincipal.ACT_CamposMascarasExecute(Sender: TObject);
 begin
   Application.CreateForm(TFormCamposMascaras,FormCamposMascaras);
   FormCamposMascaras.Show;
+end;
+
+procedure TFormPrincipal.ACT_DistribuidoresExecute(Sender: TObject);
+begin
+  Application.CreateForm(TFormDistribuidores,FormDistribuidores);
+  FormDistribuidores.Show;
 end;
 
 procedure TFormPrincipal.ACT_AcessosExecute(Sender: TObject);
@@ -112,6 +122,12 @@ procedure TFormPrincipal.ACT_PerfisExecute(Sender: TObject);
 begin
   Application.CreateForm(TFormPerfis,FormPerfis);
   FormPerfis.Show;
+end;
+
+procedure TFormPrincipal.ACT_ProdutosExecute(Sender: TObject);
+begin
+  Application.CreateForm(TFormProdutos,FormProdutos);
+  FormProdutos.Show;
 end;
 
 procedure TFormPrincipal.ACT_TabelasExecute(Sender: TObject);

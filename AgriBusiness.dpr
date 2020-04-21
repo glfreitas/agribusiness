@@ -15,7 +15,9 @@ uses
   uPesquisa in 'src\uPesquisa.pas' {FormPesquisa},
   uSobre in 'src\uSobre.pas' {FormSobre},
   uTabelas in 'src\uTabelas.pas' {FormTabelas},
-  uUsuarios in 'src\uUsuarios.pas' {FormUsuarios};
+  uUsuarios in 'src\uUsuarios.pas' {FormUsuarios},
+  uProdutos in 'src\uProdutos.pas' {FormProdutos},
+  uDistribuidores in 'src\uDistribuidores.pas' {FormDistribuidores};
 
 {$R *.res}
 

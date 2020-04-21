@@ -133,7 +133,7 @@ Begin
 
   TDbGrid(Sender).DefaultDrawDataCell(Rect, TDbGrid(Sender).columns[DataCol].Field, State);
 
-  if (Copy(Column.FieldName,5,3) = 'Opl') and (not TDBGrid(Sender).DataSource.DataSet.Eof) then
+  if (UpperCase(Copy(Column.FieldName,5,3)) = UpperCase('Opl')) and (not TDBGrid(Sender).DataSource.DataSet.Eof) then
   begin
     TDBGrid(Sender).Canvas.FillRect(Rect);
     if TDBGrid(Sender).DataSource.DataSet.FieldByName(Column.FieldName).AsString = '0' then
@@ -504,11 +504,11 @@ begin
       Open;
     end;
 
-    if not Query.Eof then
+    if Query.RecordCount > 0 then
     begin
       for I := 0 to TDataSource(PAR_DataSource).DataSet.FieldCount - 1 do
       begin
-        if TDataSource(PAR_DataSource).DataSet.Fields[I].FieldName = Query.FieldByName('ACP_DssCampo').AsString then
+        if UpperCase(TDataSource(PAR_DataSource).DataSet.Fields[I].FieldName) = UpperCase(Query.FieldByName('ACP_DssCampo').AsString) then
         begin
           if TDataSource(PAR_DataSource).DataSet.Fields[I].IsNull then
           begin
