@@ -41,6 +41,7 @@ type
     RibbonGroup2: TRibbonGroup;
     ACT_Produtos: TAction;
     ACT_Distribuidores: TAction;
+    ACT_Produtores: TAction;
     procedure ACT_UsuariosExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ACT_Fechar1Execute(Sender: TObject);
@@ -57,6 +58,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure ACT_ProdutosExecute(Sender: TObject);
     procedure ACT_DistribuidoresExecute(Sender: TObject);
+    procedure ACT_ProdutoresExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -74,7 +76,7 @@ implementation
 {$R *.dfm}
 
 uses uDM, UnitLogin, uCampos, uCamposLoockUps, uCamposMascaras, uTabelas, uUsuarios,
-  uAcessos, uSobre, uPerfis, uProdutos, uDistribuidores;
+  uAcessos, uSobre, uPerfis, uProdutos, uDistribuidores, uProdutores;
 
 procedure TFormPrincipal.ACT_CamposExecute(Sender: TObject);
 begin
@@ -122,6 +124,12 @@ procedure TFormPrincipal.ACT_PerfisExecute(Sender: TObject);
 begin
   Application.CreateForm(TFormPerfis,FormPerfis);
   FormPerfis.Show;
+end;
+
+procedure TFormPrincipal.ACT_ProdutoresExecute(Sender: TObject);
+begin
+  Application.CreateForm(TFormProdutores,FormProdutores);
+  FormProdutores.Show;
 end;
 
 procedure TFormPrincipal.ACT_ProdutosExecute(Sender: TObject);

@@ -17,7 +17,8 @@ uses
   uTabelas in 'src\uTabelas.pas' {FormTabelas},
   uUsuarios in 'src\uUsuarios.pas' {FormUsuarios},
   uProdutos in 'src\uProdutos.pas' {FormProdutos},
-  uDistribuidores in 'src\uDistribuidores.pas' {FormDistribuidores};
+  uDistribuidores in 'src\uDistribuidores.pas' {FormDistribuidores},
+  uProdutores in 'src\uProdutores.pas' {FormProdutores};
 
 {$R *.res}
 
