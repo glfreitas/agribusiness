@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, RibbonLunaStyleActnCtrls, Ribbon, ToolWin, ActnMan, ActnCtrls,
   ComCtrls, PlatformDefaultStyleActnCtrls, ActnList, DB, ADODB, ExtCtrls,
-  ImgList, WinSkinData, ActnMenus, RibbonActnMenus, RibbonSilverStyleActnCtrls,
+  ImgList, ActnMenus, RibbonActnMenus, RibbonSilverStyleActnCtrls,
   Menus, jpeg, StdCtrls, Buttons, Vcl.Mask, Vcl.DBCtrls, Vcl.DBCGrids,
   IdSocketHandle, IdBaseComponent, IdComponent,
   IdUDPBase, IdUDPServer;
@@ -32,7 +32,6 @@ type
     RibbonPage4: TRibbonPage;
     RibbonGroup9: TRibbonGroup;
     RibbonGroup10: TRibbonGroup;
-    SkinData1: TSkinData;
     ACT_Perfis: TAction;
     RibbonGroup1: TRibbonGroup;
     ActionManagerGeral: TActionManager;

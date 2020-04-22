@@ -9,6 +9,8 @@ inherited FormProdutores: TFormProdutores
   inherited Image1: TImage
     Width = 544
     Height = 189
+    ExplicitWidth = 544
+    ExplicitHeight = 189
   end
   object Label1: TLabel [1]
     Left = 8
@@ -55,13 +57,16 @@ inherited FormProdutores: TFormProdutores
   inherited PBotoes: TPanel
     Top = 189
     Width = 544
+    ExplicitTop = 189
+    ExplicitWidth = 544
     inherited pBotoesDireita: TPanel
       Left = 250
+      ExplicitLeft = 250
     end
   end
   object DBEdit1: TDBEdit [5]
     Left = 8
-    Top = 24
+    Top = 21
     Width = 134
     Height = 21
     Color = clGradientInactiveCaption
@@ -111,7 +116,7 @@ inherited FormProdutores: TFormProdutores
   end
   inherited ImageList: TImageList
     Bitmap = {
-      494C01010C004C01AC0120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C004C01B00120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

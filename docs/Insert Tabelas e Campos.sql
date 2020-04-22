@@ -1,30 +1,33 @@
 insert into Tabelas 
-select 
-	(select max(ATB_CdiTabela) from Tabelas) + row_number() over(order by TAB.TABLE_NAME),
-	TAB.TABLE_NAME,
-	TAB.TABLE_NAME,
-	left(TAB.TABLE_NAME,50),
-	(select top 1 LEFT(aa.column_name,3) from INFORMATION_SCHEMA.COLUMNS aa where aa.TABLE_NAME = TAB.TABLE_NAME),
+select DISTINCT
+	(select max(ATB_CdiTabela) from Tabelas) + 1,
+	TABS.RDB$RELATION_NAME,
+	TABS.RDB$RELATION_NAME,
+	left(TABS.RDB$RELATION_NAME,50),
+	(select FIRST 1 LEFT(COL.RDB$FIELD_NAME,3) from RDB$RELATION_FIELDS COL where upper(COL.RDB$RELATION_NAME) = upper(TABS.RDB$RELATION_NAME)),
 	0
-from INFORMATION_SCHEMA.TABLES TAB 
-where not exists (select * from Tabelas where ATB_DssTabela = TAB.TABLE_NAME)
-	
+from RDB$RELATION_FIELDS TABS
+where not exists (select * from Tabelas where upper(ATB_DssTabela) = upper(TABS.RDB$RELATION_NAME))
+AND TABS.RDB$RELATION_NAME='PRODUTOS';	
 
+
+SET GENERATOR AUTOINSERTS TO 0;
 insert into Campos
 select
-	(select max(ACP_CdiCampo) from Campos) + row_number() over(order by table_name),
-	COLUMN_NAME,
+	(select max(ACP_CdiCampo) from Campos) + GEN_ID(AUTOINSERTS,1),
+	RDB$FIELD_NAME,
 	ATB_CdiTabela,
-	COLUMN_NAME,
-	COLUMN_NAME,
+	RDB$FIELD_NAME,
+	RDB$FIELD_NAME,
 	0,
 	0,
 	0,
-	ORDINAL_POSITION,
+	RDB$FIELD_POSITION,
 	0,
 	0,
 	0
 from Tabelas 
-inner join information_schema.columns on table_name = ATB_DssTabela
-where not exists (select * from Campos where ACP_DssCampo = COLUMN_NAME)
-order by ATB_CdiTabela,ORDINAL_POSITION
+inner join RDB$RELATION_FIELDS COL on upper(ATB_DssTabela) = upper(COL.RDB$RELATION_NAME)
+where not exists (select * from Campos where UPPER(ACP_DssCampo) = UPPER(COL.RDB$FIELD_NAME))
+order by ATB_CdiTabela, COL.RDB$FIELD_POSITION;
+
