@@ -336,7 +336,6 @@ begin
   {Verifica se o componente é o campo que chamou a pesquisa}
   VAR_ObjetoRetorno := PAR_CampoRetorno;
 
-
   VAR_Filtro := '';
   VAR_TipoRetorno := 'Campo';
 
@@ -447,7 +446,7 @@ begin
   (*Editar*)
   if PAR_Operacao = 'Edit' then
   begin
-    if not TDataSource(PAR_DataSource).DataSet.Eof then
+    if TDataSource(PAR_DataSource).DataSet.RecordCount > 0 then
     begin
       TDataSource(PAR_DataSource).DataSet.Edit;
     end else begin

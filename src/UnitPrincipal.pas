@@ -41,6 +41,7 @@ type
     ACT_Produtos: TAction;
     ACT_Distribuidores: TAction;
     ACT_Produtores: TAction;
+    ACT_LimitesProdsxDists: TAction;
     procedure ACT_UsuariosExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ACT_Fechar1Execute(Sender: TObject);
@@ -58,6 +59,7 @@ type
     procedure ACT_ProdutosExecute(Sender: TObject);
     procedure ACT_DistribuidoresExecute(Sender: TObject);
     procedure ACT_ProdutoresExecute(Sender: TObject);
+    procedure ACT_LimitesProdsxDistsExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,7 +77,8 @@ implementation
 {$R *.dfm}
 
 uses uDM, UnitLogin, uCampos, uCamposLoockUps, uCamposMascaras, uTabelas, uUsuarios,
-  uAcessos, uSobre, uPerfis, uProdutos, uDistribuidores, uProdutores;
+  uAcessos, uSobre, uPerfis, uProdutos, uDistribuidores, uProdutores,
+  uLimitesProdsxDists;
 
 procedure TFormPrincipal.ACT_CamposExecute(Sender: TObject);
 begin
@@ -110,6 +113,12 @@ end;
 procedure TFormPrincipal.ACT_Fechar1Execute(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFormPrincipal.ACT_LimitesProdsxDistsExecute(Sender: TObject);
+begin
+  Application.CreateForm(TFormLimitesProdsxDists,FormLimitesProdsxDists);
+  FormLimitesProdsxDists.Show;
 end;
 
 procedure TFormPrincipal.ACT_Login1Execute(Sender: TObject);
@@ -167,13 +176,13 @@ end;
 procedure TFormPrincipal.FormCreate(Sender: TObject);
 begin
   TForm(Sender).FormStyle := fsMDIForm;
-
+  {
  (*Removendo Barra de títulos*)
   SetWindowLong(TForm(Sender).Handle,
                 GWL_STYLE,
                 GetWindowLong(Handle,GWL_STYLE) and not WS_CAPTION);
   Height := ClientHeight;
-
+  }
 end;
 
 procedure TFormPrincipal.FormShow(Sender: TObject);

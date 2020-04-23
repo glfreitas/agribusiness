@@ -18,7 +18,8 @@ uses
   uUsuarios in 'src\uUsuarios.pas' {FormUsuarios},
   uProdutos in 'src\uProdutos.pas' {FormProdutos},
   uDistribuidores in 'src\uDistribuidores.pas' {FormDistribuidores},
-  uProdutores in 'src\uProdutores.pas' {FormProdutores};
+  uProdutores in 'src\uProdutores.pas' {FormProdutores},
+  uLimitesProdsxDists in 'src\uLimitesProdsxDists.pas' {FormLimitesProdsxDists};
 
 {$R *.res}
 

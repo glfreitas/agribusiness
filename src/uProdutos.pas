@@ -19,6 +19,10 @@ type
     DBEdit2: TDBEdit;
     Label3: TLabel;
     DBEdit3: TDBEdit;
+    QDadosPRD_VLNPRECO: TBCDField;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    procedure ACT_PesquisarExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,5 +35,27 @@ var
 implementation
 
 {$R *.dfm}
+
+uses uPesquisa;
+
+procedure TFormProdutos.ACT_PesquisarExecute(Sender: TObject);
+begin
+  //inherited;
+  VAR_Select := 'select PRD_CdiProduto, PRD_DssProduto, PRD_CosUnidade, PRD_VlnPreco from Produtos';
+
+  VAR_QueryRetorno := QDados;
+  VAR_CampoChave := 'PRD_CdiProduto';
+  VAR_TipoRetorno := 'Form';
+
+  //VAR_Tabela := 'Usuarios';
+  //VAR_Campos := '*';
+  //VAR_Filtro := ' order by USR_CdiUsuario';
+
+  Application.CreateForm(TFormPesquisa,FormPesquisa);
+  FormPesquisa.QPesquisas.Close;
+  FormPesquisa.QPesquisas.Connection := TADOQuery(DSDados.DataSet).Connection;
+  FormPesquisa.ShowModal;
+
+end;
 
 end.

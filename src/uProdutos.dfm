@@ -10,6 +10,8 @@ inherited FormProdutos: TFormProdutos
   inherited Image1: TImage
     Width = 555
     Height = 156
+    ExplicitWidth = 555
+    ExplicitHeight = 156
   end
   object Label1: TLabel [1]
     Left = 8
@@ -53,14 +55,31 @@ inherited FormProdutos: TFormProdutos
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object Label4: TLabel [4]
+    Left = 184
+    Top = 88
+    Width = 32
+    Height = 13
+    Caption = 'Pre'#231'o'
+    FocusControl = DBEdit4
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   inherited PBotoes: TPanel
     Top = 156
     Width = 555
+    ExplicitTop = 156
+    ExplicitWidth = 555
     inherited pBotoesDireita: TPanel
       Left = 261
+      ExplicitLeft = 261
     end
   end
-  object DBEdit1: TDBEdit [5]
+  object DBEdit1: TDBEdit [6]
     Left = 8
     Top = 24
     Width = 134
@@ -70,7 +89,7 @@ inherited FormProdutos: TFormProdutos
     DataSource = DSDados
     TabOrder = 1
   end
-  object DBEdit2: TDBEdit [6]
+  object DBEdit2: TDBEdit [7]
     Left = 8
     Top = 64
     Width = 450
@@ -79,7 +98,7 @@ inherited FormProdutos: TFormProdutos
     DataSource = DSDados
     TabOrder = 2
   end
-  object DBEdit3: TDBEdit [7]
+  object DBEdit3: TDBEdit [8]
     Left = 8
     Top = 104
     Width = 150
@@ -88,9 +107,18 @@ inherited FormProdutos: TFormProdutos
     DataSource = DSDados
     TabOrder = 3
   end
+  object DBEdit4: TDBEdit [9]
+    Left = 184
+    Top = 104
+    Width = 150
+    Height = 21
+    DataField = 'PRD_VLNPRECO'
+    DataSource = DSDados
+    TabOrder = 4
+  end
   inherited ImageList: TImageList
     Bitmap = {
-      494C01010C004C01AC0120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C004C01B00120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2223,6 +2251,11 @@ inherited FormProdutos: TFormProdutos
     end
     object QDadosPRD_COSUNIDADE: TStringField
       FieldName = 'PRD_COSUNIDADE'
+    end
+    object QDadosPRD_VLNPRECO: TBCDField
+      FieldName = 'PRD_VLNPRECO'
+      DisplayFormat = '#,0.00'
+      Precision = 18
     end
   end
 end

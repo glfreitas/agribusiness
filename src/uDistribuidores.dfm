@@ -9,6 +9,8 @@ inherited FormDistribuidores: TFormDistribuidores
   inherited Image1: TImage
     Width = 534
     Height = 141
+    ExplicitWidth = 534
+    ExplicitHeight = 141
   end
   object Label1: TLabel [1]
     Left = 8
@@ -55,8 +57,11 @@ inherited FormDistribuidores: TFormDistribuidores
   inherited PBotoes: TPanel
     Top = 141
     Width = 534
+    ExplicitTop = 141
+    ExplicitWidth = 534
     inherited pBotoesDireita: TPanel
       Left = 240
+      ExplicitLeft = 240
     end
   end
   object DBEdit1: TDBEdit [5]
@@ -89,7 +94,7 @@ inherited FormDistribuidores: TFormDistribuidores
   end
   inherited ImageList: TImageList
     Bitmap = {
-      494C01010C004C01AC0120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C004C01B00120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000008000000001002000000000000000
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
