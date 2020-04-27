@@ -42,6 +42,7 @@ type
     ACT_Distribuidores: TAction;
     ACT_Produtores: TAction;
     ACT_LimitesProdsxDists: TAction;
+    ACT_Negociacoes: TAction;
     procedure ACT_UsuariosExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ACT_Fechar1Execute(Sender: TObject);
@@ -60,6 +61,7 @@ type
     procedure ACT_DistribuidoresExecute(Sender: TObject);
     procedure ACT_ProdutoresExecute(Sender: TObject);
     procedure ACT_LimitesProdsxDistsExecute(Sender: TObject);
+    procedure ACT_NegociacoesExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -78,7 +80,7 @@ implementation
 
 uses uDM, UnitLogin, uCampos, uCamposLoockUps, uCamposMascaras, uTabelas, uUsuarios,
   uAcessos, uSobre, uPerfis, uProdutos, uDistribuidores, uProdutores,
-  uLimitesProdsxDists;
+  uLimitesProdsxDists, uNegociacoes;
 
 procedure TFormPrincipal.ACT_CamposExecute(Sender: TObject);
 begin
@@ -126,6 +128,12 @@ begin
   VAR_CdiUsuarioConectado := 0;
   Application.CreateForm(TFormLogin,FormLogin);
   FormLogin.ShowModal;
+end;
+
+procedure TFormPrincipal.ACT_NegociacoesExecute(Sender: TObject);
+begin
+  Application.CreateForm(TFormNegociacoes,FormNegociacoes);
+  FormNegociacoes.Show;
 end;
 
 procedure TFormPrincipal.ACT_PerfisExecute(Sender: TObject);

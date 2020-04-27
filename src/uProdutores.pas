@@ -48,10 +48,6 @@ begin
   VAR_CampoChave := 'PRO_CdiProdutor';
   VAR_TipoRetorno := 'Form';
 
-  //VAR_Tabela := 'Usuarios';
-  //VAR_Campos := '*';
-  //VAR_Filtro := ' order by USR_CdiUsuario';
-
   Application.CreateForm(TFormPesquisa,FormPesquisa);
   FormPesquisa.QPesquisas.Close;
   FormPesquisa.QPesquisas.Connection := TADOQuery(DSDados.DataSet).Connection;

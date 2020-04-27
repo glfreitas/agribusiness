@@ -106,7 +106,7 @@ begin
   for I := 0 to PAR_Form.ComponentCount - 1 do
   begin
     if (PAR_Form.Components[I].ClassName = PAR_DssClasse)
-      and (PAR_Form.Components[I].Name = PAR_DssNome) then
+      and (UpperCase( PAR_Form.Components[I].Name ) = UpperCase( PAR_DssNome )) then
     begin
       Result := PAR_Form.Components[I];
     end;
@@ -261,8 +261,8 @@ begin
     SQL.Add('inner join Campos CampoReferencia on CampoReferencia.ACP_CdiCampo = CamposLookUps.ACL_CdiCampoReferencia');
     SQL.Add('inner join Campos CampoResultado on CampoResultado.ACP_CdiCampo = ACL_CdiCampoResultado');
     SQL.Add('inner join Tabelas on ATB_CdiTabela = CampoResultado.ACP_CdiTabela');
-    SQL.Add('where CampoChave.ACP_DssCampo = :CampoChave');
-    Parameters.ParamByName('CampoChave').Value := TDBEdit(PAR_Campo).DataField;
+    SQL.Add('where upper(CampoChave.ACP_DssCampo) = :CampoChave');
+    Parameters.ParamByName('CampoChave').Value := UpperCase(TDBEdit(PAR_Campo).DataField);
     ExecSQL;
     Open;
   end;

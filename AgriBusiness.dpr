@@ -19,7 +19,9 @@ uses
   uProdutos in 'src\uProdutos.pas' {FormProdutos},
   uDistribuidores in 'src\uDistribuidores.pas' {FormDistribuidores},
   uProdutores in 'src\uProdutores.pas' {FormProdutores},
-  uLimitesProdsxDists in 'src\uLimitesProdsxDists.pas' {FormLimitesProdsxDists};
+  uLimitesProdsxDists in 'src\uLimitesProdsxDists.pas' {FormLimitesProdsxDists},
+  uNegociacoes in 'src\uNegociacoes.pas' {FormNegociacoes},
+  uNegociacoesProdutos in 'src\uNegociacoesProdutos.pas' {FormNegociacoesProdutos};
 
 {$R *.res}
 
